@@ -1,0 +1,246 @@
+@import "reset"
+
+/* 变量 */
+fontSize = 0.36rem;
+position()
+	position: arguments
+	z-index: 1 unless @z-index
+	
+#position
+	position: absolute;
+
+/* common */
+  
+.w100
+	width: 100%;
+
+.h100
+	height: 100%;
+
+.left
+	float: left;
+
+.right
+	float: right;
+
+.text-left
+	text-align: left;
+
+.text-right
+	text-align: right;
+
+.text-center
+	text-align: center;
+	html,body
+	width: 100%;
+	height: 100%;
+	background-color: #f9f9f9;
+
+.bg-white
+	background-color: #fff;
+
+.border-b
+	border-bottom: 1px solid #f0f0ef;
+
+.border-t
+	border-top: 1px solid #f0f0ef;
+
+#app
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+/*font*/
+#app
+	font-size: fontSize;
+	line-height: 150%;
+
+.main-container
+	padding: 0.2rem;
+
+h1
+	font-size: 0.72rem;
+	line-height: 150%;
+
+.font-l
+	font-size: 0.4rem;
+
+.font-m
+	font-size: 0.36rem;
+
+.font-s
+	font-size: 0.32rem;
+
+.font-strong
+	font-weight: bold;
+
+/* icon*/
+i.icon
+	font-style: normal;
+	display: inline-block;
+	
+.icon
+	&.icon-cir
+		border-radius: 100%;
+		padding: 0;
+		width: 0.72rem;
+		height: 0.72rem;
+		border: none;
+		box-shadow: 1px 1px 0.08rem rgba(0,0,0,0.3);
+	
+/* form */
+button
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding: 0 0.2rem;
+	font-size: 0.32rem;
+	height: 0.72rem;
+
+input
+	border: 1px solid #ccc;
+	&[type=text]
+		background-color: #fff;
+		height: 0.72rem;
+		padding: 0 0.12rem;
+	&[type=checkbox]
+		width: 0.4rem;
+		height: 0.4rem;
+		margin-right: 0.12rem;
+		font: 300 0.32rem Arial;
+	&[type=submit]
+		background-color: #666;
+		color: #fff;
+		font-size: 0.32rem;
+		height: 0.64rem;
+		padding: 0 0.32rem;
+
+/* layout common */
+.text-overflow,
+.text-overflow-2
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	white-space:normal;
+
+.text-overflow-2
+	-webkit-line-clamp: 2;
+
+.height-full,
+.wrap-scroll
+	height: 100%;
+
+.wrap-img
+	font-size: 0;
+	line-height: 0;
+
+.wrap-img img
+	width: 100%;
+
+.flex-wrap
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+
+.flex,
+.flex-v,
+.flex-hv-center,
+.flex-v-center,
+.flex-h-center,
+.flex-h-right,
+.flex-h-between
+	display:-webkit-box;
+	display:-webkit-flex;
+	display:-ms-flexbox;
+	display:flex;
+
+.flex-v
+	flex-direction:column;
+
+for num in (1..10)
+	.flex-{num}
+		flex: num
+
+.flex-hv-center,
+.flex-v-center
+	-webkit-box-align:center;
+	-webkit-align-items:center;
+	-ms-flex-align:center;
+	align-items:center;
+
+.flex-hv-center,
+.flex-h-center
+	-webkit-box-pack:center;
+	-webkit-justify-content:center;
+	-ms-flex-pack:center;
+	justify-content:center;
+
+.flex-h-right
+	-webkit-box-pack:justify;
+	-webkit-justify-content:flex-end;
+	-ms-flex-pack:justify;
+	justify-content:flex-end;
+
+.flex-h-between
+	-webkit-box-pack:justify;
+	-webkit-justify-content:space-between;
+	-ms-flex-pack:justify;
+	justify-content:space-between;
+
+.flex-v-between
+	align-content: space-between;
+
+.pd-line
+	padding: 0.12rem 0;
+
+.pd-b-line
+	padding-bottom: 0.12rem;
+
+.mg-b-line
+	margin-bottom: 0.12rem;
+
+.pd-a-culm
+	padding: 0.28rem;
+
+.pd-t-control
+	padding-top: 1.12rem;
+
+.mg-t-control
+	margin-top: 1.12rem;
+
+.mg-b-culm
+	margin-bottom: 0.24rem;
+
+.border-top
+	border-top: 1px solid #e9e9e9;
+
+.pd-t-culm
+	padding-top: 0.24rem;
+
+.pd-lb-culm
+	padding-left: 0.24rem;
+	padding-bottom: 0.24rem;
+
+.pd-b-cart-bar
+	padding-bottom: 1.32rem;
+
+.pd-t-menu
+	padding-top: 2.68rem;
+
+.mg-l-line
+	margin-left: 0.24rem;
+
+.row
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+	&.row-submit
+		padding: 0.32rem 0;
+	p
+		margin-top: 0.12rem;
+		margin-bottom: 0.12rem;
+
+/* list */
+ul 
+	font-size: 0.36rem;
+	li
+		font-size: @font-size;
+		padding: 0.12rem 0;

@@ -24,13 +24,14 @@
 		<ul>
 			<li class="flex flex-hv-center" v-for="(el,key) in users">
 				<input type="checkbox" v-model="el.contacted" />
-				<div class="flex flex-hv-center">
-					<label class="flex-1">{{el.name}} :</label>
-					<div class="label-flw flex-3">{{el.email}}</div>
+				<div class="flex flex-hv-center flex-1" :class="{contacted: el.contacted}">
+					<label>{{el.name}} :</label>
+					<div class="label-flw flex-1">{{el.email}}</div>
 					<button class="icon icon-cir" @click="delItem(el,key)">X</button>
 				</div>
 			</li>
 		</ul>
+		<h2>{{msg}}</h2>
 	</div>
 </template>
 
@@ -38,24 +39,15 @@
 import _ from 'lodash';
 export default {
 	name: 'users',
+	props: {
+		msg: {
+
+		}
+	},
 	data () {
 		return {
 			users: [
-				{
-					name: 'Holy Hu 1',
-					email: 'ki33520@gmail.com',
-					contacted: false
-				},
-				{
-					name: 'Holy Hu 2',
-					email: 'ki33521@gmail.com',
-					contacted: false
-				},
-				{
-					name: 'Holy Hu 3',
-					email: 'ki33522@gmail.com',
-					contacted: false
-				}
+
 			],
 			newUser: {
 				name: null,
@@ -77,11 +69,21 @@ export default {
 			this.users.splice(_.findIndex(this.users,el),1); //key === _.findIndex(this.users,el)
 			console.log(this.users)
 		}
+	},
+	created(){
+		this.$http.get('http://jsonplaceholder.typicode.com/users').then((response)=>{
+			response.data.forEach((el,key)=>{
+				el.contacted = false;
+			})
+			this.users = response.data;
+			console.log(this.users)
+		})
 	}
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-	.contacted{ }
+<style lang="styl" scoped>
+.contacted
+	text-decoration: line-through;
 </style>

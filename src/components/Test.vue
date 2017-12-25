@@ -34,7 +34,7 @@
 		
 		<!-- props 属性 -->
 		<h2 @click="showPlugin">{{msg}}</h2>
-
+		<div>User {{ $route.params }}</div>
 	</div>
 </template>
 

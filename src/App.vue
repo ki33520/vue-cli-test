@@ -1,6 +1,17 @@
 <template>
 	<div id="app">
-		<router-view :msg="msg + `new`"></router-view>
+		<ul class="nav top-nav flex flex-hv-center">
+			<li class="flex-1">
+				<router-link to="/">Home</router-link>
+			</li>
+			<li class="flex-1">
+				<router-link to="/user">User</router-link>
+			</li>
+			<li class="flex-1">
+				<router-link to="/test">Test</router-link>
+			</li>
+		</ul>
+		<router-view></router-view>
 	</div>
 </template>
 
@@ -13,14 +24,17 @@ export default {
 		return {
 			msg: 'App 文字'
 		}
+	},
+	mounted(){
+		//console.log(this)
 	}
 }
 </script>
 
 <style lang="styl">
-#app {
+#app
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	color: #2c3e50;
-}
+
 </style>

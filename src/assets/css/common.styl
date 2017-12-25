@@ -241,6 +241,18 @@ for num in (1..10)
 /* list */
 ul 
 	font-size: 0.36rem;
+	&.nav
+		line-height: 150%;
+		li
+			color: #333;
+			border-left: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			&:first-child
+				border-left: 0;
+			a
+				display: block;
+				text-align: center;
+				color: #337ab7;
 	li
 		font-size: @font-size;
 		padding: 0.12rem 0;

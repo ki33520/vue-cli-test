@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import VueResource from 'vue-resource'
 import Home from 'components/Home'
 import User from 'components/User'
+import UserMore from 'components/UserMore'
+import UserList from 'components/UserList'
 import Test from 'components/Test'
 
 Vue.use(Router)
@@ -13,22 +15,59 @@ export default new Router({
 		{
 			path: '/',
 			name: 'Home',
-			component: Home
+			components: {
+				content: Home
+			}
 		},
 		{
-			path: '/user',
+			path: '/user/:name',
 			name: 'User',
-			component: User
+			components: {
+				sidebar: {
+					template: `
+						<ul class="nav flex-hv-center">
+							<li class="flex-1">
+								<router-link to="/user/HolyHu">HolyHu</router-link>
+							</li>
+							<li class="flex-1">
+								<router-link to="/user/KinnaWang">KinnaWang</router-link>
+							</li>
+							<li class="flex-1">
+								<router-link to="/user/AimeeHu">AimeeHu</router-link>
+							</li>
+						</ul>
+					`
+				},
+				content: User
+			},
+			children: [
+				{
+					path: 'more',
+					name: 'UserMore',
+					component: UserMore
+				}
+			]
+		},
+		{
+			path: '/userlist',
+			name: 'UserList',
+			components: {
+				content: UserList
+			}
 		},
 		{
 			path: '/test',
 			name: 'Test',
-			component: Test
+			components: {
+				content: Test
+			}
 		},
 		{
 			path: '/test/:username/post/:post_id',
 			name: 'Test',
-			component: Test
+			components: {
+				content: Test
+			}
 		}
 	]
 })

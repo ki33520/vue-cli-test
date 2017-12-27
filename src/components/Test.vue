@@ -35,6 +35,12 @@
 		<!-- props 属性 -->
 		<h2 @click="showPlugin">{{msg}}</h2>
 		<div>User {{ $route.params }}</div>
+		<div>
+			<router-link to="/more" appendto>More</router-link>
+		</div>
+		<div>
+			<router-view></router-view>
+		</div>
 	</div>
 </template>
 

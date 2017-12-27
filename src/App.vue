@@ -1,17 +1,21 @@
 <template>
 	<div id="app">
-		<ul class="nav top-nav flex flex-hv-center">
-			<li class="flex-1">
-				<router-link to="/">Home</router-link>
-			</li>
+		<ul class="nav top-nav flex-hv-center">
 			<li class="flex-1">
 				<router-link to="/user">User</router-link>
 			</li>
 			<li class="flex-1">
+				<router-link to="/userlist">UserList</router-link>
+			</li>
+			<li class="flex-1">
 				<router-link to="/test">Test</router-link>
 			</li>
+			<li class="flex-1 text-center">
+				<button @click="surf">跳转</button>
+			</li>
 		</ul>
-		<router-view></router-view>
+		<router-view name="sidebar"></router-view>
+		<router-view name="content"></router-view>
 	</div>
 </template>
 
@@ -27,6 +31,25 @@ export default {
 	},
 	mounted(){
 		//console.log(this)
+	},
+	methods:{
+		surf(){
+			setTimeout(()=>{
+				//console.log(this.$router)
+				this.$router.push({name: 'Home'});
+				setTimeout(()=>{
+					//console.log(this.$router)
+					this.$router.push({name: 'User', params: {name: 'KinnaWang'}});
+				},1000)
+			},1000)
+		}
+	},
+	watch: {
+		'$route':{
+			handler: (to, from) => {
+				//console.log(from,to)
+			}
+		} 
 	}
 }
 </script>
